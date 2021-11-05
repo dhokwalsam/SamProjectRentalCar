@@ -1,0 +1,24 @@
+Version 3.7 - 20161122
+
+Discovered that the connection string example for "island" remote database example was causing confusion.
+Difficult for students to adapt for their assignments.
+Students are mostly using LocalDB
+
+Therefore.
+(1) Set this up to use LocalDB
+(2) Provide commented-out connection strings for "island"
+
+
+Catchup work 20170126 on the empty App "MVCManukauTech_v03.7_WithIdentityManage" to upgrade it to matching 3.7 specs:
+(1) Connection String as above
+(2) Session Object initialisation in "Global.asax.cs":"protected void Session_Start()" creating an OrderId of 0 like XSpy
+
+
+
+-------------------------
+Version 3.5
+
+Update "Selenium"
+Include drivers for IE
+
+-------------------------

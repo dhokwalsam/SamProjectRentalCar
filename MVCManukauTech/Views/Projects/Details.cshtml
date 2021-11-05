@@ -1,0 +1,58 @@
+﻿@*20170212 JPC needed IEnumerable<T> here*@
+@model IEnumerable<MVCManukauTech.Models.Category>
+
+@{
+    ViewBag.Title = "Details";
+    List<MVCManukauTech.Models.ProjectWithMember> projectView = (List<MVCManukauTech.Models.ProjectWithMember>)ViewData["ProjectView"];
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Project</h4>
+    <hr />
+    <dl class="dl-horizontal" style="grid-row-gap:1em;font-size:1em;">
+        <dt>
+            ProjectId:
+        </dt>
+        <dd>
+            @projectView[0].ProjectId
+        </dd>
+
+        <dt>
+            Project Name:
+        </dt>
+        <dd>
+            @projectView[0].Name
+        </dd>
+
+        <dt>
+            Description:
+        </dt>
+        <dd>
+            @projectView[0].Description
+        </dd>
+
+        <dt>
+            Expected Hours:
+        </dt>
+        <dd>
+            @projectView[0].ExpectedHours
+        </dd>
+
+        <dt>
+            Student Members:
+        </dt>
+        <dd>
+            @foreach (var item in projectView)
+            {
+                @item.UserName<br />
+            }
+        </dd>
+
+    </dl>
+</div>
+<p>
+    <a href="~/Projects/Edit?id=@projectView[0].ProjectId">Edit Project</a> | 
+    <a href="~/Home/Index">Back to List of Projects</a>
+</p>

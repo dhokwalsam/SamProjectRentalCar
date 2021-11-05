@@ -1,0 +1,47 @@
+﻿@model IEnumerable<MVCManukauTech.Models.Category>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h3>Categories for Project: <br/>
+    @ViewData["ProjectAbout"]</h3>
+
+<p>
+    <a href="~/Categories/Create?id=@ViewData["ProjectId"]">Create</a>
+    @*@Html.ActionLink("Create New", "Create")*@
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Category Name
+        </th>
+        <th>
+            Category Description
+        </th>
+        <th>
+            Est. Hours
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Description)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EstHours)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.CategoryId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.CategoryId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.CategoryId })
+        </td>
+    </tr>
+}
+
+</table>

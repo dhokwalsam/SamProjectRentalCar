@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="012bbb7e31f642a0b696231b66c4c0e6" Name="Diagram1" ZoomLevel="116">
+        <EntityTypeShape EntityType="WorkDiaryModel.C__MigrationHistory" Width="1.5" PointX="7.5" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="WorkDiaryModel.AspNetRole" Width="1.5" PointX="0.5" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WorkDiaryModel.AspNetUserClaim" Width="1.5" PointX="5" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="WorkDiaryModel.AspNetUserLogin" Width="1.5" PointX="5" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="WorkDiaryModel.AspNetUser" Width="1.5" PointX="2.625" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WorkDiaryModel.Diary" Width="1.5" PointX="5.125" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WorkDiaryModel.sysdiagram" Width="1.5" PointX="7.5" PointY="8" IsExpanded="true" />
+        <AssociationConnector Association="WorkDiaryModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="WorkDiaryModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="WorkDiaryModel.AspNetUserRoles" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="WorkDiaryModel.ProjectMember" Width="1.5" PointX="2.625" PointY="0.75" />
+        <AssociationConnector Association="WorkDiaryModel.FK_Diary_ProjectMember" />
+        <EntityTypeShape EntityType="WorkDiaryModel.Category" Width="1.5" PointX="7.375" PointY="0.75" />
+        <EntityTypeShape EntityType="WorkDiaryModel.Project" Width="1.5" PointX="2.625" PointY="3.5" />
+        <AssociationConnector Association="WorkDiaryModel.FK_Category_Project" />
+        <AssociationConnector Association="WorkDiaryModel.FK_Diary_Category" />
+        <AssociationConnector Association="WorkDiaryModel.FK_ProjectMember_Project" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

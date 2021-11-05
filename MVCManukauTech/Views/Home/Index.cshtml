@@ -1,0 +1,89 @@
+﻿@model IEnumerable<MVCManukauTech.Models.ProjectWithMemberViewModel>
+
+<h2 style="color:saddlebrown">EMPLOYEE TIMESHEET</h2>
+        <div>
+            You are logged-in to this system as @User.Identity.Name.<br />
+        </div>
+<img src="~/images/CAR.jpg" />
+
+<h4 style="color:red;">@Html.Raw(ViewData["Message"])</h4>
+
+<p>@{
+    if (User.IsInRole("Admin"))
+    {
+        <a href="~/Projects/Create">Add New Timesheet</a>
+    }
+}
+
+</p>
+<table class="table">
+    <tr>
+        <th style="color:saddlebrown">
+           Work Session
+        </th>
+        <th  style="color:saddlebrown">
+            Description
+        </th>
+        <th  style="color:saddlebrown">
+            Total Hours
+        </th>
+        <th  style="color:saddlebrown">
+            Employee Name
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+
+        if ( item.UserName == "NULL_DO_NOT_DISPLAY") { continue; }
+
+        <tr>
+            <td>
+                @item.Name
+            </td>
+            <td>
+                @item.Description
+            </td>
+            <td>
+                @item.ExpectedHours
+            </td>
+            <td>
+                @{
+                    if (item.UserName == "TODO_JOIN_AS_MEMBER")
+                    {
+                        <a href="~/Home/JoinThisProject?id=@item.ProjectId" class="btn">Join this Department</a>
+                    }
+                    else
+                    {
+                        @item.UserName
+                    }
+                }
+
+            </td>
+            <td>
+                @{
+                    if (User.IsInRole("Admin"))
+                    {
+                        <a href="~/Projects/Edit?id=@item.ProjectId">Project | </a>
+                        <a href="~/Categories/Index?id=@item.ProjectId">Categories | </a><br />
+                        //20170222 JPC add Diary link for admin
+                        if (item.ProjectMemberId != null)
+                        {
+                            <a href="~/Diaries/Index?p=@item.ProjectMemberId">Add Hours</a><br />
+                        }
+                    }
+                    else if (item.UserName == User.Identity.Name)
+                    {
+                        <a href="~/Diaries/Index?p=@item.ProjectId">Add Hours</a><br />
+                    }
+
+                }
+
+            </td>
+        </tr>
+    }
+    </table>
+
+    @*Business ends here. Below is a carousel as an example to follow or for MITCIT branding*@
+

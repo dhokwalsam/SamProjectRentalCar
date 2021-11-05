@@ -1,0 +1,65 @@
+@model IEnumerable<MVCManukauTech.Models.Diary>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+<h4 style="color:red">@ViewData["Message"]</h4>
+<p>
+    <a href="~/Diaries/Create">Add Hours</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="~/Diaries/MetricsReport">Payslip</a>
+</p>
+<table class="table">
+    <tr>
+        <th style="color:saddlebrown">
+            Date
+        </th>
+        <th  style="color:saddlebrown">
+            Time1
+        </th>
+        <th  style="color:saddlebrown">
+            Time2
+        </th>
+        <th  style="color:saddlebrown">
+            Notes
+        </th>
+      
+        <th  style="color:saddlebrown">
+            Employee Department
+        </th>
+        <th  style="color:saddlebrown">
+            Employee Email
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @(((DateTime)item.Date).ToShortDateString())
+            @*@Html.DisplayFor(modelItem => item.Date)*@
+        </td>
+        <td>
+            @(((DateTime)item.Time1).ToShortTimeString())
+        </td>
+        <td>
+            @(((DateTime)item.Time2).ToShortTimeString())
+        </td>
+        <td>
+            @Html.Raw(item.Notes)
+        </td>
+
+        <td>
+            @Html.DisplayFor(modelItem => item.Category.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProjectMember.UserName)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.DiaryId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.DiaryId })
+        </td>
+    </tr>
+}
+
+</table>

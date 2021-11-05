@@ -1,0 +1,59 @@
+﻿@model IEnumerable<MVCManukauTech.ViewModels.MetricsReportViewModel>
+
+@{
+    ViewBag.Title = "MetricsReport";
+}
+
+<h2>Payslip</h2>
+
+<p>
+    @Html.ActionLink("Return to Diary Index", "Index")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Name
+        </th>
+        <th>
+            HoursWorked
+        </th>
+        <th>
+            Employee Hours
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HoursWorked)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EstHours)
+        </td>
+        <td>
+
+        </td>
+    </tr>
+}
+    @*20170322 JPC TotalHoursWorked displayed in additional table row*@
+    <tr>
+        <td style="text-align:right">
+            ----------------<br />
+            Total Hours Worked:
+        </td>
+        <td>
+            -------<br />
+            @ViewData["TotalHoursWorked"]           
+        </td>
+        <td>
+
+        </td>
+        <td>
+
+        </td>
+    </tr>
+</table>
